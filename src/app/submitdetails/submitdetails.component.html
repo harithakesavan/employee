@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="text-center">
+                        <h1>Register</h1>
+                        <h6>
+                            Add employee details here!!!
+                           
+                        </h6>
+                 </div>
+                 <form >
+                 <form [formGroup]="detailsform" (ngSubmit)="submit()">
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Employee Name</label>
+                        <input type="text" formControlName="fullname" class="form-control" id="exampleInputPassword1" #fullname>
+                      
+                      <div *ngIf="this.detailsform.get('fullname')?.touched&&this.detailsform.get('fullname')?.errors" style="color:red">invalid employee name</div>
+                    </div>
+                      <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Address</label>
+                        
+                        <textarea formControlName="address" class="form-control" id="exampleInputPassword1" #address></textarea>
+                        <div *ngIf="this.detailsform.get('address')?.touched&&this.detailsform.get('address')?.errors" style="color:red">invalid address</div>
+                    </div>
+                    <div class="mb-3">
+                      <label for="exampleInputEmail1" class="form-label">DOB</label>
+                      <input type="date"  formControlName="date"class="form-control" id="exampleInputEmail1" #date>
+                      
+                      <div *ngIf="this.detailsform.get('date')?.touched&&this.detailsform.get('date')?.errors" style="color:red">invalid DOB</div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="" class="form-label">Role</label>
+                        <select formControlName="role" class="form-control" #role>  
+                            <option>admin</option>  
+                            <option>manager</option>  
+                            <option>HR</option>
+                            <option>developer</option>
+                              
+                        </select> 
+                        <div *ngIf="this.detailsform.get('role')?.touched&&this.detailsform.get('role')?.errors" style="color:red">select role</div>
+                      </div>
+                      <div formArrayName="mobiless">
+                    <div class="mb-3">
+                        
+                        <button type="button" (click)="addnum()"  id="btn1" class="btn btn-dark"><font color:white> mobile number</font></button>
+                   
+                    </div>
+                    <div class="form-group" *ngFor="let mobile of mobilessControls; let i =index" >
+                        <input type="text" class="form-control" [formControlName]="i" formControlName="mobiless" #mobiless>
+                    </div>
+                </div>
+                
+                <div *ngIf="this.detailsform.get('mo')?.touched&&this.detailsform.get('mo')?.errors" style="color:red">select gender</div>
+                    
+
+                    <div class="mb-3">
+                        <label for="" class="form-label" >Gender</label>&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="gen"  value="male" formControlName="gen" #gen  >Male
+                        <input type="radio" name="gen"  value="female" formControlName="gen" #gen >female
+    
+                        <input type="radio" name="gen" value="others" formControlName="gen" #gen >Others
+    
+    
+                    </div>
+                    <div *ngIf="this.detailsform.get('gen')?.touched&&this.detailsform.get('gen')?.errors" style="color:red">select gender</div>
+                    
+                    
+                    <button type="submit" class="btn btn-success">submit</button>
+                 
+                </form>
+                </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br><br><br><br>
+    
+    
+    
+</body>
+</html>

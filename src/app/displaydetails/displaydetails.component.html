@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display details</title>
+</head>
+<body>
+    
+    <div class="card mb-3" style="max-width: 540px;">
+        <div class="row g-0" style="text-align:center">
+          <div class="col-md-4">
+            <img src="https://i.postimg.cc/76fz6YxT/em.jpg" class="img-fluid rounded-start" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title"><b>employee details</b></h5>
+              <p class="card-text"><b>Name:</b>{{name}}</p>
+              <p class="card-text"><b>Role:</b>{{role}}</p>
+              <p class="card-text"><b>Gender:</b>{{gen}}</p>
+              <p class="card-text"><b>DOB:</b>{{date}}</p>
+              <p class="card-text"><b>Address:</b>{{address}}</p>
+              <p class="card-text"><b>mobile number</b><div *ngFor="let i of mobilenum">
+        {{i}}
+   
+
+    </div>
+
+
+             
+            </div>
+          </div>
+        </div>
+      </div>
+
+    
+</body>
+</html>
